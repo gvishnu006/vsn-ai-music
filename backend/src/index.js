@@ -31,6 +31,23 @@ app.use(express.json({ limit: "2mb" }));
 // Local audio files (demo mode)
 app.use("/audio", express.static(config.uploadsDir, { fallthrough: true }));
 
+app.get("/", (req, res) => {
+  res.json({
+    service: "VSN AI Music Generator API",
+    version: "1.0.0",
+    docs: "/api/health",
+    endpoints: [
+      "POST /api/generate",
+      "GET /api/songs",
+      "GET /api/songs/:id",
+      "GET /api/me",
+      "GET /api/users/:id",
+      "GET /api/admin/stats",
+    ],
+    demoMode: config.demoMode,
+  });
+});
+
 app.get("/api/health", (req, res) => {
   res.json({
     ok: true,
