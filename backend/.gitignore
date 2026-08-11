@@ -1,0 +1,18 @@
+# dependencies
+/node_modules
+
+# runtime data (demo mode persistence — do NOT commit)
+/data/
+/uploads/
+/tmp/
+
+# env & secrets
+.env
+.env.local
+
+# logs
+*.log
+server.out.log
+
+# test artifacts
+test-artifacts/
